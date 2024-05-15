@@ -1,4 +1,4 @@
-FROM docker.io/phusion/baseimage:jammy-1.0.1
+FROM docker.io/phusion/baseimage:jammy-1.0.4
 
 # Install Apache, SOGo from repository
 RUN apt-get update && \
