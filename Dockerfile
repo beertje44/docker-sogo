@@ -1,10 +1,10 @@
-FROM docker.io/phusion/baseimage:jammy-1.0.4
+FROM docker.io/phusion/baseimage:noble-1.0.0
 
 # Install Apache, SOGo from repository
 RUN apt-get update && \
     apt-get install -y wget && \
     wget -O- "https://keys.openpgp.org/vks/v1/by-fingerprint/74FFC6D72B925A34B5D356BDF8A27B36A6E2EAE9" | gpg --dearmor > /etc/apt/trusted.gpg.d/sogo.gpg && \
-    echo "deb https://packages.sogo.nu/nightly/5/ubuntu/ jammy jammy" > /etc/apt/sources.list.d/SOGo.list && \
+    echo "deb https://packages.sogo.nu/nightly/5/ubuntu/ noble noble" > /etc/apt/sources.list.d/SOGo.list && \
     apt-get update && \
     apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes && \
     apt-get install -y --no-install-recommends gettext-base apache2 sogo sope4.9-gdl1-postgresql memcached libssl-dev && \
